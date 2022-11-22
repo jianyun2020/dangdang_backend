@@ -15,4 +15,4 @@ router.post("/addUser", async (ctx: Context) => {
   ctx.body = `您好： ${user.username}, 年龄：${user.age}`
 })
 
-export default router
+module.exports = router
