@@ -5,6 +5,8 @@ import fs from "fs"
 import Router from "koa-router"
 import path from "path"
 
+import globalException from "./GlobalException"
+
 class AllRouterLoader {
   app!: Koa
   static allRouterLoader: AllRouterLoader = new AllRouterLoader()
@@ -12,6 +14,8 @@ class AllRouterLoader {
   init(app: Koa) {
     this.app = app
     const rootRouter = this.loadAllRouterWrapper()
+    // 全局通用异常
+    this.app.use(globalException)
     this.app.use(rootRouter.routes())
     // 4. 监听方法
     this.listen()
