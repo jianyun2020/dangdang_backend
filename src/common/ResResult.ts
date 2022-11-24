@@ -15,4 +15,4 @@ class Result {
   }
 }
 
-export let { success, fail } = Result
+export const { success, fail } = Result

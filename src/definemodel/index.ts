@@ -19,7 +19,7 @@ class UserInfo {
         },
         password: {
           type: DataTypes.STRING(20),
-          field: "password",
+          field: "psw",
           allowNull: false,
         },
         address: {
@@ -35,7 +35,7 @@ class UserInfo {
       },
       {
         freezeTableName: true, // true表示使用给定的表名，false表示模型名后加s作为表名
-        timestamps: false, // true表示给模型加上时间戳属性（createAt、updateAt）， false 表示不带时间戳属性
+        timestamps: false, // tru示给模型加上时间戳属性（createAt、updateAt）， false 表示不带时间戳属性
       }
     )
   }

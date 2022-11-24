@@ -1,3 +1,5 @@
+import { success } from "@/common/ResResult"
+import { addUser, Userinfo } from "@/dao/UserDao"
 import { Context } from "koa"
 import Router from "koa-router"
 
@@ -11,8 +13,9 @@ router.get("/findUserinfo/:username", async (ctx: Context) => {
 })
 
 router.post("/addUser", async (ctx: Context) => {
-  const user = ctx.request.body
-  ctx.body = `您好： ${user.username}, 年龄：${user.age}`
+  const userinfo: Userinfo = ctx.request.body
+  const dbUserinfo = await addUser(userinfo)
+  ctx.body = success(dbUserinfo)
 })
 
 module.exports = router
